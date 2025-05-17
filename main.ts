@@ -34,6 +34,7 @@ while (pins.digitalReadPin(pin) == 0) {
 let timeHigh = input.runningTimeMicros()
 let time = timeHigh - timeLow
 basic.forever(function () {
+    basic.clearScreen()
     basic.showNumber(time / 1000)
     basic.pause(200)
 })
