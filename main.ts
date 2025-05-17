@@ -1,22 +1,4 @@
-/**
- * To time a low pulse...
- * 
- * Press RESET to start!
- * 
- * Wait for high
- * 
- * Wait for low
- * 
- * Record time of start of pulse
- * 
- * Wait for high
- * 
- * Record time of end of pulse
- * 
- * Calculate time difference
- */
 let pin = DigitalPin.P0
-let threshold = 800
 images.iconImage(IconNames.No).showImage(0, 0)
 while (pins.digitalReadPin(pin) == 0) {
 	
@@ -32,7 +14,26 @@ while (pins.digitalReadPin(pin) == 0) {
 }
 let timeHigh = input.runningTimeMicros()
 let time = timeHigh - timeLow
+/**
+ * To time a low pulse...
+ * 
+ * Wait for high
+ * 
+ * Wait for low
+ * 
+ * Record time of start of pulse
+ * 
+ * Wait for high
+ * 
+ * Record time of end of pulse
+ * 
+ * Calculate time difference
+ * 
+ * Display the pulse duration in milliseconds
+ * 
+ * Press RESET to measure another pulse
+ */
 basic.forever(function () {
-    basic.showNumber(time)
+    basic.showNumber(time / 1000)
     basic.pause(200)
 })
